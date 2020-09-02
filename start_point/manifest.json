@@ -1,0 +1,16 @@
+{
+  "display_name": "Javascript, jest",
+  "image_name": "cyberdojofoundation/javascript_node_jest:bad970f",
+  "visible_filenames": [
+    "hiker.test.js",
+    "hiker.js",
+    "cyber-dojo.sh",
+    ".jshintrc",
+    "package.json"
+  ],
+  "filename_extension": [
+    ".js"
+  ],
+  "max_seconds": 10,
+  "tab_size": 2
+}
