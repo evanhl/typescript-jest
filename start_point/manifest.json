@@ -1,15 +1,16 @@
 {
-  "display_name": "Javascript, jest",
-  "image_name": "cyberdojofoundation/javascript_node_jest:bad970f",
+  "display_name": "TypeScript, jest",
+  "image_name": "cyberdojofoundation/typescript_node_jest:90c0986",
   "visible_filenames": [
-    "hiker.test.js",
-    "hiker.js",
+    "package.json",
+    "jest.config.js",
+    "hiker.test.ts",
+    "hiker.ts",
     "cyber-dojo.sh",
-    ".jshintrc",
-    "package.json"
+    ".jshintrc"
   ],
   "filename_extension": [
-    ".js"
+    ".ts"
   ],
   "max_seconds": 10,
   "tab_size": 2

@@ -1,9 +1,9 @@
 'use strict';
 
-const answer = require('./hiker');
+const ans = require('./hiker');
 
 describe('answer', () => {
   it('to life the universe and everything', () => {
-    expect(answer()).toEqual(42);
+    expect(ans()).toEqual(42);
   });
 });

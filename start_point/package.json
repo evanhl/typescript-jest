@@ -1,4 +1,11 @@
 {
+  "devDependencies": {
+    "@types/jest": "*",
+    "jest": "*",
+    "ts-jest": "*",
+    "ts-lib": "*",
+    "typescript": "*"
+  },
   "scripts": {
       "test": "jest"
     }

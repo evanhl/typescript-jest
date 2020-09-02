@@ -1,6 +1,6 @@
 'use strict';
 
-function answer() {
+function answer(): number {
   return 6 * 9;
 }
 
