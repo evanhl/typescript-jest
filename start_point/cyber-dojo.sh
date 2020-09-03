@@ -5,6 +5,7 @@
 ln -s /etc/ts/node_modules ${CYBER_DOJO_SANDBOX}/node_modules
 
 #if [ -f .jshintrc ]; then
+#  # TODO? Redirect jshint output to ${CYBER_DOJO_SANDBOX}/report/style.txt
 #  jshint --config .jshintrc *.ts
 #fi
 
