@@ -1,12 +1,12 @@
 
-#if [ -f .jshintrc ]; then
-#  jshint --config .jshintrc *.js
-#fi
-
 # - - - - - - - - - - - - - - - - - - - - - - - -
 # It seems jest cannot use ts-jest when installed globally.
 # Because of this, all npm packages are installed in /etc/ts
 ln -s /etc/ts/node_modules /sandbox/node_modules
+
+#if [ -f .jshintrc ]; then
+#  jshint --config .jshintrc *.js
+#fi
 
 if [ $? == 0 ]; then
   # jest does not appear to have a cli option to turn off ansi
