@@ -8,7 +8,7 @@ PATH=${PATH}:${CYBER_DOJO_SANDBOX}/node_modules/.bin
 mkdir -p ${CYBER_DOJO_SANDBOX}/report
 
 if [ -f .jshintrc ]; then
-  jshint --config .jshintrc *.js | strip-ansi > ${CYBER_DOJO_SANDBOX}/report/style.txt
+  jshint --config .jshintrc *.ts | strip-ansi > ${CYBER_DOJO_SANDBOX}/report/style.txt
 fi
 
 # jest has no cli option to turn off ansi escape codes.
