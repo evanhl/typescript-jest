@@ -4,10 +4,5 @@ module.exports = {
   },
   testEnvironment: "node",
   testRegex: ".*test\\.(t|j)sx?$",
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-  globals: {
-    "ts-jest": {
-      tsConfig: "tsconfig.json"
-    }
-  }
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"]
 };
