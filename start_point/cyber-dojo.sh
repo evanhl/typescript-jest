@@ -4,18 +4,18 @@
 # Image installs all npm packages in /etc/ts/
 ln -s /etc/ts/node_modules ${CYBER_DOJO_SANDBOX}/node_modules
 
-#if [ -f .jshintrc ]; then
-#  # TODO? Redirect jshint output to ${CYBER_DOJO_SANDBOX}/report/style.txt
-#  jshint --config .jshintrc *.ts
-#fi
+PATH=${PATH}:${CYBER_DOJO_SANDBOX}/node_modules/.bin
+mkdir -p ${CYBER_DOJO_SANDBOX}/report
 
-if [ $? == 0 ]; then
-  # jest has no cli option to turn off ansi escape codes.
-  # So save stderr to a file, then strip the ansi codes from the
-  # file, then cat the result back to stderr.
-  STDERR_LOG_FILE=/tmp/ts-jest.ascii-coloured.log
-  npm run test 2> "${STDERR_LOG_FILE}"
-  STATUS=$?
-  ${CYBER_DOJO_SANDBOX}/node_modules/.bin/strip-ansi < "${STDERR_LOG_FILE}" >&2
-  exit ${STATUS}
+if [ -f .jshintrc ]; then
+  jshint --config .jshintrc *.js | strip-ansi > ${CYBER_DOJO_SANDBOX}/report/style.txt
 fi
+
+# jest has no cli option to turn off ansi escape codes.
+# So save stderr to a file, strip the ansi codes from the
+# file, cat the result back to stderr.
+STDERR_LOG_FILE=/tmp/ts-jest.ascii-coloured.log
+npm run test 2> "${STDERR_LOG_FILE}"
+STATUS=$?
+strip-ansi < "${STDERR_LOG_FILE}" >&2
+exit ${STATUS}
