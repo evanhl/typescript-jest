@@ -1,6 +1,6 @@
 {
   "display_name": "TypeScript, jest",
-  "image_name": "cyberdojofoundation/typescript_node_jest:8c8071f",
+  "image_name": "cyberdojofoundation/typescript_node_jest:63e4e75",
   "visible_filenames": [
     "package.json",
     "jest.config.js",
