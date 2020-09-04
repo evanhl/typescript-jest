@@ -1,12 +1,7 @@
 {
-  "devDependencies": {
-    "@types/jest": "*",
-    "jest": "*",
-    "ts-jest": "*",
-    "ts-lib": "*",
-    "typescript": "*"
-  },
   "scripts": {
-      "test": "jest"
-    }
+      "test": "jest --maxWorkers=2",
+      "lint": "eslint --fix **/*.ts",
+      "typecheck": "tsc --noEmit"
+  }
 }

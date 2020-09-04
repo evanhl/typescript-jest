@@ -5,11 +5,12 @@
 ln -s /etc/ts/node_modules ${CYBER_DOJO_SANDBOX}/node_modules
 
 PATH=${PATH}:${CYBER_DOJO_SANDBOX}/node_modules/.bin
-mkdir -p ${CYBER_DOJO_SANDBOX}/report
 
-if [ -f .jshintrc ]; then
-  jshint --config .jshintrc *.ts | strip-ansi > ${CYBER_DOJO_SANDBOX}/report/style.txt
-fi
+npm run typecheck
+
+#Uncomment this line to enable linting.
+#Please note - this will slow down the test.
+#npm run lint
 
 # jest has no cli option to turn off ansi escape codes.
 # So save stderr to a file, strip the ansi codes from the

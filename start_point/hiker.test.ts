@@ -1,9 +1,7 @@
-'use strict';
-
-const ans = require('./hiker');
+import { answer } from './hiker';
 
 describe('answer', () => {
   it('to life the universe and everything', () => {
-    expect(ans()).toEqual(42);
+    expect(answer()).toEqual(42);
   });
 });
