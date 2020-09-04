@@ -9,4 +9,4 @@ module.exports = {
     project: "tsconfig.json",
     sourceType: "module",
   },
-}; 
+}
