@@ -6,6 +6,11 @@ const OPEN_TO_CLOSE_MAPPING: {[key: string]: string} = {
   '[': ']',
   '(': ')',
 };
+const CLOSE_TO_OPEN_MAPPING: {[key: string]: string} = {
+  '}': '{',
+  ']': '[',
+  ')': '(',
+};
 
 export function areBracesMatching(bracesStr: string): boolean {
   const stack = [];
@@ -16,27 +21,21 @@ export function areBracesMatching(bracesStr: string): boolean {
     if (BRACES.includes(ch)) {
       if (OPEN_TO_CLOSE_MAPPING[ch]) {
         stack.push(ch);
-        // if closed brace
-      } else if () {
+      } else if (CLOSE_TO_OPEN_MAPPING[ch]) {
         // check top of stack
         const lastOpeningBrace = stack[stack.length - 1];
 
         if (!lastOpeningBrace) { return false; }
         // if top of stack is matching, then pop
-        if ()
-        // else return false
+        const expectedOpeningBrace = CLOSE_TO_OPEN_MAPPING[ch];
+        if (lastOpeningBrace === expectedOpeningBrace) {
+          stack.pop();
+        } else {
+          return false;
+        }
       }
-
-
-    } else {
-      // TODO: maybe delete
-      continue;
     }
   }
-
-  // when reading closing brace, check to see if stack.length === 0
-
-  // at the end return false if stack is > 0 elements
 
   return stack.length === 0;
 }

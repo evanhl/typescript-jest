@@ -57,7 +57,24 @@ describe('matching_braces', () => {
       expect(areBracesMatching('{[')).toEqual(false);
       expect(areBracesMatching('{[]')).toEqual(false);
     });
-    // open-closed-open-closed
+    it('open-closed-open-closed', () => {
+      expect(areBracesMatching('()()')).toEqual(true);
+      expect(areBracesMatching('()[]')).toEqual(true);
+      expect(areBracesMatching('{}[]')).toEqual(true);
+      expect(areBracesMatching('()[]{}')).toEqual(true);
+      expect(areBracesMatching('a(b)(c)d')).toEqual(true);
+      expect(areBracesMatching('a(b)c[]d')).toEqual(true);
+      expect(areBracesMatching('a(b)c[d]e{f}g')).toEqual(true);
+    });
+    it('open-closed-open', () => {
+      expect(areBracesMatching('()(')).toEqual(false);
+      expect(areBracesMatching('()[')).toEqual(false);
+      expect(areBracesMatching('{}[')).toEqual(false);
+      expect(areBracesMatching('()[]{')).toEqual(false);
+      expect(areBracesMatching('a(b)(cd')).toEqual(false);
+      expect(areBracesMatching('a(b)c[d')).toEqual(false);
+      expect(areBracesMatching('a(b)c[d]e{fg')).toEqual(false);
+    });
     // open-closed-open ()(
     // too many closing braces
   });
