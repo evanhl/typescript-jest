@@ -24,8 +24,25 @@ describe('matching_braces', () => {
       expect(areBracesMatching('{ab}')).toEqual(true);
     });
 
-    // two sets of different braces properly nested
-    // two sets of different braces improperly nested
+    it('multiple sets of different braces properly nested', () => {
+      expect(areBracesMatching('([])')).toEqual(true);
+      expect(areBracesMatching('[()]')).toEqual(true);
+      expect(areBracesMatching('{()}')).toEqual(true);
+      expect(areBracesMatching('{([])}')).toEqual(true);
+      expect(areBracesMatching('(a[b]c)')).toEqual(true);
+      expect(areBracesMatching('[a(b)c]')).toEqual(true);
+      expect(areBracesMatching('{d(e)f}')).toEqual(true);
+      expect(areBracesMatching('blah{hi(greg[evan]daniel)stuff}awef')).toEqual(true);
+    });
+    it('two sets of different braces improperly nested', () => {
+      expect(areBracesMatching('([)]')).toEqual(false);
+      expect(areBracesMatching('[(])')).toEqual(false);
+      expect(areBracesMatching('{(})')).toEqual(false);
+      expect(areBracesMatching('{([)]}')).toEqual(false);
+      expect(areBracesMatching('{([]})')).toEqual(false);
+      expect(areBracesMatching('a(b[c)d]e')).toEqual(false);
+      expect(areBracesMatching('a[b(c]d)e')).toEqual(false);
+    });
 
     it('unclosed single brace is invalid', () => {
       expect(areBracesMatching('(')).toEqual(false);
@@ -34,7 +51,12 @@ describe('matching_braces', () => {
     });
 
 
-    // unclosed multiple braces ([(
+    it('unclosed multiple braces', () => {
+      expect(areBracesMatching('([(')).toEqual(false);
+      expect(areBracesMatching('[([')).toEqual(false);
+      expect(areBracesMatching('{[')).toEqual(false);
+      expect(areBracesMatching('{[]')).toEqual(false);
+    });
     // open-closed-open-closed
     // open-closed-open ()(
     // too many closing braces

@@ -2,7 +2,9 @@ export function areBracesMatching(bracesStr: string): boolean {
   const stack = [];
   // use stack
   // ignore non-brace chars
+  for (const ch of bracesStr) {
 
+  }
 
   // when reading closing brace, check to see if stack.length === 0
 
